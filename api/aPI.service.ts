@@ -13,7 +13,7 @@
 
 import { Inject, Injectable, Optional }                      from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams,
-         HttpResponse, HttpEvent, HttpParameterCodec
+         HttpResponse, HttpEvent, HttpParameterCodec, HttpContext 
         }       from '@angular/common/http';
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
@@ -91,10 +91,10 @@ export class APIService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2LoginPost(loginRequestBody: LoginRequestBody, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<LoginResponseBody>;
-    public apiV2LoginPost(loginRequestBody: LoginRequestBody, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<LoginResponseBody>>;
-    public apiV2LoginPost(loginRequestBody: LoginRequestBody, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<LoginResponseBody>>;
-    public apiV2LoginPost(loginRequestBody: LoginRequestBody, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2LoginPost(loginRequestBody: LoginRequestBody, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<LoginResponseBody>;
+    public apiV2LoginPost(loginRequestBody: LoginRequestBody, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<LoginResponseBody>>;
+    public apiV2LoginPost(loginRequestBody: LoginRequestBody, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<LoginResponseBody>>;
+    public apiV2LoginPost(loginRequestBody: LoginRequestBody, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (loginRequestBody === null || loginRequestBody === undefined) {
             throw new Error('Required parameter loginRequestBody was null or undefined when calling apiV2LoginPost.');
         }
@@ -113,6 +113,10 @@ export class APIService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         // to determine the Content-Type header
@@ -132,6 +136,7 @@ export class APIService {
         return this.httpClient.post<LoginResponseBody>(`${this.configuration.basePath}/api/v2/login`,
             loginRequestBody,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,

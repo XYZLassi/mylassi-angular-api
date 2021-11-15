@@ -13,7 +13,7 @@
 
 import { Inject, Injectable, Optional }                      from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams,
-         HttpResponse, HttpEvent, HttpParameterCodec
+         HttpResponse, HttpEvent, HttpParameterCodec, HttpContext 
         }       from '@angular/common/http';
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
@@ -93,10 +93,10 @@ export class ExercisesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ExercisesDocIdDelete(docId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<any>;
-    public apiV2ExercisesDocIdDelete(docId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<any>>;
-    public apiV2ExercisesDocIdDelete(docId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<any>>;
-    public apiV2ExercisesDocIdDelete(docId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2ExercisesDocIdDelete(docId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any>;
+    public apiV2ExercisesDocIdDelete(docId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<any>>;
+    public apiV2ExercisesDocIdDelete(docId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<any>>;
+    public apiV2ExercisesDocIdDelete(docId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (docId === null || docId === undefined) {
             throw new Error('Required parameter docId was null or undefined when calling apiV2ExercisesDocIdDelete.');
         }
@@ -122,6 +122,10 @@ export class ExercisesService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         let responseType_: 'text' | 'json' = 'json';
@@ -131,6 +135,7 @@ export class ExercisesService {
 
         return this.httpClient.delete<any>(`${this.configuration.basePath}/api/v2/exercises/${encodeURIComponent(String(docId))}`,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -145,10 +150,10 @@ export class ExercisesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ExercisesDocIdGet(docId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<Exercise>;
-    public apiV2ExercisesDocIdGet(docId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<Exercise>>;
-    public apiV2ExercisesDocIdGet(docId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<Exercise>>;
-    public apiV2ExercisesDocIdGet(docId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2ExercisesDocIdGet(docId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Exercise>;
+    public apiV2ExercisesDocIdGet(docId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Exercise>>;
+    public apiV2ExercisesDocIdGet(docId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Exercise>>;
+    public apiV2ExercisesDocIdGet(docId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (docId === null || docId === undefined) {
             throw new Error('Required parameter docId was null or undefined when calling apiV2ExercisesDocIdGet.');
         }
@@ -167,6 +172,10 @@ export class ExercisesService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         let responseType_: 'text' | 'json' = 'json';
@@ -176,6 +185,7 @@ export class ExercisesService {
 
         return this.httpClient.get<Exercise>(`${this.configuration.basePath}/api/v2/exercises/${encodeURIComponent(String(docId))}`,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -191,10 +201,10 @@ export class ExercisesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ExercisesDocIdPatch(docId: number, editExerciseOptions: EditExerciseOptions, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<Exercise>;
-    public apiV2ExercisesDocIdPatch(docId: number, editExerciseOptions: EditExerciseOptions, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<Exercise>>;
-    public apiV2ExercisesDocIdPatch(docId: number, editExerciseOptions: EditExerciseOptions, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<Exercise>>;
-    public apiV2ExercisesDocIdPatch(docId: number, editExerciseOptions: EditExerciseOptions, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2ExercisesDocIdPatch(docId: number, editExerciseOptions: EditExerciseOptions, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Exercise>;
+    public apiV2ExercisesDocIdPatch(docId: number, editExerciseOptions: EditExerciseOptions, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Exercise>>;
+    public apiV2ExercisesDocIdPatch(docId: number, editExerciseOptions: EditExerciseOptions, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Exercise>>;
+    public apiV2ExercisesDocIdPatch(docId: number, editExerciseOptions: EditExerciseOptions, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (docId === null || docId === undefined) {
             throw new Error('Required parameter docId was null or undefined when calling apiV2ExercisesDocIdPatch.');
         }
@@ -223,6 +233,10 @@ export class ExercisesService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         // to determine the Content-Type header
@@ -242,6 +256,7 @@ export class ExercisesService {
         return this.httpClient.patch<Exercise>(`${this.configuration.basePath}/api/v2/exercises/${encodeURIComponent(String(docId))}`,
             editExerciseOptions,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -257,10 +272,10 @@ export class ExercisesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ExercisesGet(limit?: number, page?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<ExerciseList>;
-    public apiV2ExercisesGet(limit?: number, page?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<ExerciseList>>;
-    public apiV2ExercisesGet(limit?: number, page?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<ExerciseList>>;
-    public apiV2ExercisesGet(limit?: number, page?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2ExercisesGet(limit?: number, page?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ExerciseList>;
+    public apiV2ExercisesGet(limit?: number, page?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ExerciseList>>;
+    public apiV2ExercisesGet(limit?: number, page?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ExerciseList>>;
+    public apiV2ExercisesGet(limit?: number, page?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (limit !== undefined && limit !== null) {
@@ -286,6 +301,10 @@ export class ExercisesService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         let responseType_: 'text' | 'json' = 'json';
@@ -295,6 +314,7 @@ export class ExercisesService {
 
         return this.httpClient.get<ExerciseList>(`${this.configuration.basePath}/api/v2/exercises`,
             {
+                context: localVarHttpContext,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -310,10 +330,10 @@ export class ExercisesService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ExercisesPost(createExerciseOptions: CreateExerciseOptions, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<Exercise>;
-    public apiV2ExercisesPost(createExerciseOptions: CreateExerciseOptions, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<Exercise>>;
-    public apiV2ExercisesPost(createExerciseOptions: CreateExerciseOptions, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<Exercise>>;
-    public apiV2ExercisesPost(createExerciseOptions: CreateExerciseOptions, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2ExercisesPost(createExerciseOptions: CreateExerciseOptions, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Exercise>;
+    public apiV2ExercisesPost(createExerciseOptions: CreateExerciseOptions, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Exercise>>;
+    public apiV2ExercisesPost(createExerciseOptions: CreateExerciseOptions, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Exercise>>;
+    public apiV2ExercisesPost(createExerciseOptions: CreateExerciseOptions, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (createExerciseOptions === null || createExerciseOptions === undefined) {
             throw new Error('Required parameter createExerciseOptions was null or undefined when calling apiV2ExercisesPost.');
         }
@@ -339,6 +359,10 @@ export class ExercisesService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         // to determine the Content-Type header
@@ -358,6 +382,7 @@ export class ExercisesService {
         return this.httpClient.post<Exercise>(`${this.configuration.basePath}/api/v2/exercises`,
             createExerciseOptions,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,

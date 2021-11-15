@@ -13,7 +13,7 @@
 
 import { Inject, Injectable, Optional }                      from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams,
-         HttpResponse, HttpEvent, HttpParameterCodec
+         HttpResponse, HttpEvent, HttpParameterCodec, HttpContext 
         }       from '@angular/common/http';
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
@@ -94,10 +94,10 @@ export class PollsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PollsDocIdGet(docId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<Poll>;
-    public apiV2PollsDocIdGet(docId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<Poll>>;
-    public apiV2PollsDocIdGet(docId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<Poll>>;
-    public apiV2PollsDocIdGet(docId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2PollsDocIdGet(docId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Poll>;
+    public apiV2PollsDocIdGet(docId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Poll>>;
+    public apiV2PollsDocIdGet(docId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Poll>>;
+    public apiV2PollsDocIdGet(docId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (docId === null || docId === undefined) {
             throw new Error('Required parameter docId was null or undefined when calling apiV2PollsDocIdGet.');
         }
@@ -116,6 +116,10 @@ export class PollsService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         let responseType_: 'text' | 'json' = 'json';
@@ -125,6 +129,7 @@ export class PollsService {
 
         return this.httpClient.get<Poll>(`${this.configuration.basePath}/api/v2/polls/${encodeURIComponent(String(docId))}`,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -140,10 +145,10 @@ export class PollsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PollsDocIdPatch(docId: number, patchPollOptions: PatchPollOptions, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<Poll>;
-    public apiV2PollsDocIdPatch(docId: number, patchPollOptions: PatchPollOptions, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<Poll>>;
-    public apiV2PollsDocIdPatch(docId: number, patchPollOptions: PatchPollOptions, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<Poll>>;
-    public apiV2PollsDocIdPatch(docId: number, patchPollOptions: PatchPollOptions, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2PollsDocIdPatch(docId: number, patchPollOptions: PatchPollOptions, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Poll>;
+    public apiV2PollsDocIdPatch(docId: number, patchPollOptions: PatchPollOptions, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Poll>>;
+    public apiV2PollsDocIdPatch(docId: number, patchPollOptions: PatchPollOptions, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Poll>>;
+    public apiV2PollsDocIdPatch(docId: number, patchPollOptions: PatchPollOptions, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (docId === null || docId === undefined) {
             throw new Error('Required parameter docId was null or undefined when calling apiV2PollsDocIdPatch.');
         }
@@ -172,6 +177,10 @@ export class PollsService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         // to determine the Content-Type header
@@ -191,6 +200,7 @@ export class PollsService {
         return this.httpClient.patch<Poll>(`${this.configuration.basePath}/api/v2/polls/${encodeURIComponent(String(docId))}`,
             patchPollOptions,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -206,10 +216,10 @@ export class PollsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PollsDocIdSessionNameGet(docId: number, sessionName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<PollSession>;
-    public apiV2PollsDocIdSessionNameGet(docId: number, sessionName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<PollSession>>;
-    public apiV2PollsDocIdSessionNameGet(docId: number, sessionName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<PollSession>>;
-    public apiV2PollsDocIdSessionNameGet(docId: number, sessionName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2PollsDocIdSessionNameGet(docId: number, sessionName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<PollSession>;
+    public apiV2PollsDocIdSessionNameGet(docId: number, sessionName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<PollSession>>;
+    public apiV2PollsDocIdSessionNameGet(docId: number, sessionName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<PollSession>>;
+    public apiV2PollsDocIdSessionNameGet(docId: number, sessionName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (docId === null || docId === undefined) {
             throw new Error('Required parameter docId was null or undefined when calling apiV2PollsDocIdSessionNameGet.');
         }
@@ -231,6 +241,10 @@ export class PollsService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         let responseType_: 'text' | 'json' = 'json';
@@ -240,6 +254,7 @@ export class PollsService {
 
         return this.httpClient.get<PollSession>(`${this.configuration.basePath}/api/v2/polls/${encodeURIComponent(String(docId))}/${encodeURIComponent(String(sessionName))}`,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -255,10 +270,10 @@ export class PollsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PollsDocIdSessionNameStartPost(docId: number, sessionName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<PollSession>;
-    public apiV2PollsDocIdSessionNameStartPost(docId: number, sessionName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<PollSession>>;
-    public apiV2PollsDocIdSessionNameStartPost(docId: number, sessionName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<PollSession>>;
-    public apiV2PollsDocIdSessionNameStartPost(docId: number, sessionName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2PollsDocIdSessionNameStartPost(docId: number, sessionName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<PollSession>;
+    public apiV2PollsDocIdSessionNameStartPost(docId: number, sessionName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<PollSession>>;
+    public apiV2PollsDocIdSessionNameStartPost(docId: number, sessionName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<PollSession>>;
+    public apiV2PollsDocIdSessionNameStartPost(docId: number, sessionName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (docId === null || docId === undefined) {
             throw new Error('Required parameter docId was null or undefined when calling apiV2PollsDocIdSessionNameStartPost.');
         }
@@ -287,6 +302,10 @@ export class PollsService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         let responseType_: 'text' | 'json' = 'json';
@@ -297,6 +316,7 @@ export class PollsService {
         return this.httpClient.post<PollSession>(`${this.configuration.basePath}/api/v2/polls/${encodeURIComponent(String(docId))}/${encodeURIComponent(String(sessionName))}/start`,
             null,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -312,10 +332,10 @@ export class PollsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PollsDocIdSessionNameStopPost(docId: number, sessionName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<PollSession>;
-    public apiV2PollsDocIdSessionNameStopPost(docId: number, sessionName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<PollSession>>;
-    public apiV2PollsDocIdSessionNameStopPost(docId: number, sessionName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<PollSession>>;
-    public apiV2PollsDocIdSessionNameStopPost(docId: number, sessionName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2PollsDocIdSessionNameStopPost(docId: number, sessionName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<PollSession>;
+    public apiV2PollsDocIdSessionNameStopPost(docId: number, sessionName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<PollSession>>;
+    public apiV2PollsDocIdSessionNameStopPost(docId: number, sessionName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<PollSession>>;
+    public apiV2PollsDocIdSessionNameStopPost(docId: number, sessionName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (docId === null || docId === undefined) {
             throw new Error('Required parameter docId was null or undefined when calling apiV2PollsDocIdSessionNameStopPost.');
         }
@@ -344,6 +364,10 @@ export class PollsService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         let responseType_: 'text' | 'json' = 'json';
@@ -354,6 +378,7 @@ export class PollsService {
         return this.httpClient.post<PollSession>(`${this.configuration.basePath}/api/v2/polls/${encodeURIComponent(String(docId))}/${encodeURIComponent(String(sessionName))}/stop`,
             null,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -370,10 +395,10 @@ export class PollsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PollsDocIdSessionNameVoteLabelNamePost(docId: number, sessionName: string, labelName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<PollSession>;
-    public apiV2PollsDocIdSessionNameVoteLabelNamePost(docId: number, sessionName: string, labelName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<PollSession>>;
-    public apiV2PollsDocIdSessionNameVoteLabelNamePost(docId: number, sessionName: string, labelName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<PollSession>>;
-    public apiV2PollsDocIdSessionNameVoteLabelNamePost(docId: number, sessionName: string, labelName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2PollsDocIdSessionNameVoteLabelNamePost(docId: number, sessionName: string, labelName: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<PollSession>;
+    public apiV2PollsDocIdSessionNameVoteLabelNamePost(docId: number, sessionName: string, labelName: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<PollSession>>;
+    public apiV2PollsDocIdSessionNameVoteLabelNamePost(docId: number, sessionName: string, labelName: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<PollSession>>;
+    public apiV2PollsDocIdSessionNameVoteLabelNamePost(docId: number, sessionName: string, labelName: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (docId === null || docId === undefined) {
             throw new Error('Required parameter docId was null or undefined when calling apiV2PollsDocIdSessionNameVoteLabelNamePost.');
         }
@@ -398,6 +423,10 @@ export class PollsService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         let responseType_: 'text' | 'json' = 'json';
@@ -408,6 +437,7 @@ export class PollsService {
         return this.httpClient.post<PollSession>(`${this.configuration.basePath}/api/v2/polls/${encodeURIComponent(String(docId))}/${encodeURIComponent(String(sessionName))}/vote/${encodeURIComponent(String(labelName))}`,
             null,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -423,10 +453,10 @@ export class PollsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PollsGet(limit?: number, page?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<PollList>;
-    public apiV2PollsGet(limit?: number, page?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<PollList>>;
-    public apiV2PollsGet(limit?: number, page?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<PollList>>;
-    public apiV2PollsGet(limit?: number, page?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2PollsGet(limit?: number, page?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<PollList>;
+    public apiV2PollsGet(limit?: number, page?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<PollList>>;
+    public apiV2PollsGet(limit?: number, page?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<PollList>>;
+    public apiV2PollsGet(limit?: number, page?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (limit !== undefined && limit !== null) {
@@ -459,6 +489,10 @@ export class PollsService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         let responseType_: 'text' | 'json' = 'json';
@@ -468,6 +502,7 @@ export class PollsService {
 
         return this.httpClient.get<PollList>(`${this.configuration.basePath}/api/v2/polls`,
             {
+                context: localVarHttpContext,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -483,10 +518,10 @@ export class PollsService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2PollsPost(createPollOptions: CreatePollOptions, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<Poll>;
-    public apiV2PollsPost(createPollOptions: CreatePollOptions, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<Poll>>;
-    public apiV2PollsPost(createPollOptions: CreatePollOptions, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<Poll>>;
-    public apiV2PollsPost(createPollOptions: CreatePollOptions, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2PollsPost(createPollOptions: CreatePollOptions, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Poll>;
+    public apiV2PollsPost(createPollOptions: CreatePollOptions, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Poll>>;
+    public apiV2PollsPost(createPollOptions: CreatePollOptions, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Poll>>;
+    public apiV2PollsPost(createPollOptions: CreatePollOptions, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (createPollOptions === null || createPollOptions === undefined) {
             throw new Error('Required parameter createPollOptions was null or undefined when calling apiV2PollsPost.');
         }
@@ -512,6 +547,10 @@ export class PollsService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         // to determine the Content-Type header
@@ -531,6 +570,7 @@ export class PollsService {
         return this.httpClient.post<Poll>(`${this.configuration.basePath}/api/v2/polls`,
             createPollOptions,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,

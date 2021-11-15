@@ -13,7 +13,7 @@
 
 import { Inject, Injectable, Optional }                      from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams,
-         HttpResponse, HttpEvent, HttpParameterCodec
+         HttpResponse, HttpEvent, HttpParameterCodec, HttpContext 
         }       from '@angular/common/http';
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
@@ -93,10 +93,10 @@ export class LessonPageTemplateService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2LessonsPageTemplatesDocIdGet(docId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<LessonPageTemplate>;
-    public apiV2LessonsPageTemplatesDocIdGet(docId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<LessonPageTemplate>>;
-    public apiV2LessonsPageTemplatesDocIdGet(docId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<LessonPageTemplate>>;
-    public apiV2LessonsPageTemplatesDocIdGet(docId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2LessonsPageTemplatesDocIdGet(docId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<LessonPageTemplate>;
+    public apiV2LessonsPageTemplatesDocIdGet(docId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<LessonPageTemplate>>;
+    public apiV2LessonsPageTemplatesDocIdGet(docId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<LessonPageTemplate>>;
+    public apiV2LessonsPageTemplatesDocIdGet(docId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (docId === null || docId === undefined) {
             throw new Error('Required parameter docId was null or undefined when calling apiV2LessonsPageTemplatesDocIdGet.');
         }
@@ -122,6 +122,10 @@ export class LessonPageTemplateService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         let responseType_: 'text' | 'json' = 'json';
@@ -131,6 +135,7 @@ export class LessonPageTemplateService {
 
         return this.httpClient.get<LessonPageTemplate>(`${this.configuration.basePath}/api/v2/lessons/pageTemplates/${encodeURIComponent(String(docId))}`,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -146,10 +151,10 @@ export class LessonPageTemplateService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2LessonsPageTemplatesDocIdPatch(docId: number, lessonPageTemplateOption: LessonPageTemplateOption, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<LessonPageTemplate>;
-    public apiV2LessonsPageTemplatesDocIdPatch(docId: number, lessonPageTemplateOption: LessonPageTemplateOption, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<LessonPageTemplate>>;
-    public apiV2LessonsPageTemplatesDocIdPatch(docId: number, lessonPageTemplateOption: LessonPageTemplateOption, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<LessonPageTemplate>>;
-    public apiV2LessonsPageTemplatesDocIdPatch(docId: number, lessonPageTemplateOption: LessonPageTemplateOption, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2LessonsPageTemplatesDocIdPatch(docId: number, lessonPageTemplateOption: LessonPageTemplateOption, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<LessonPageTemplate>;
+    public apiV2LessonsPageTemplatesDocIdPatch(docId: number, lessonPageTemplateOption: LessonPageTemplateOption, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<LessonPageTemplate>>;
+    public apiV2LessonsPageTemplatesDocIdPatch(docId: number, lessonPageTemplateOption: LessonPageTemplateOption, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<LessonPageTemplate>>;
+    public apiV2LessonsPageTemplatesDocIdPatch(docId: number, lessonPageTemplateOption: LessonPageTemplateOption, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (docId === null || docId === undefined) {
             throw new Error('Required parameter docId was null or undefined when calling apiV2LessonsPageTemplatesDocIdPatch.');
         }
@@ -178,6 +183,10 @@ export class LessonPageTemplateService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         // to determine the Content-Type header
@@ -197,6 +206,7 @@ export class LessonPageTemplateService {
         return this.httpClient.patch<LessonPageTemplate>(`${this.configuration.basePath}/api/v2/lessons/pageTemplates/${encodeURIComponent(String(docId))}`,
             lessonPageTemplateOption,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -212,10 +222,10 @@ export class LessonPageTemplateService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2LessonsPageTemplatesGet(limit?: number, page?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<LessonPageTemplateList>;
-    public apiV2LessonsPageTemplatesGet(limit?: number, page?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<LessonPageTemplateList>>;
-    public apiV2LessonsPageTemplatesGet(limit?: number, page?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<LessonPageTemplateList>>;
-    public apiV2LessonsPageTemplatesGet(limit?: number, page?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2LessonsPageTemplatesGet(limit?: number, page?: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<LessonPageTemplateList>;
+    public apiV2LessonsPageTemplatesGet(limit?: number, page?: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<LessonPageTemplateList>>;
+    public apiV2LessonsPageTemplatesGet(limit?: number, page?: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<LessonPageTemplateList>>;
+    public apiV2LessonsPageTemplatesGet(limit?: number, page?: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarQueryParameters = new HttpParams({encoder: this.encoder});
         if (limit !== undefined && limit !== null) {
@@ -248,6 +258,10 @@ export class LessonPageTemplateService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         let responseType_: 'text' | 'json' = 'json';
@@ -257,6 +271,7 @@ export class LessonPageTemplateService {
 
         return this.httpClient.get<LessonPageTemplateList>(`${this.configuration.basePath}/api/v2/lessons/pageTemplates`,
             {
+                context: localVarHttpContext,
                 params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
@@ -272,10 +287,10 @@ export class LessonPageTemplateService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2LessonsPageTemplatesPost(createLessonPageTemplate: CreateLessonPageTemplate, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<LessonPageTemplate>;
-    public apiV2LessonsPageTemplatesPost(createLessonPageTemplate: CreateLessonPageTemplate, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpResponse<LessonPageTemplate>>;
-    public apiV2LessonsPageTemplatesPost(createLessonPageTemplate: CreateLessonPageTemplate, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json',}): Observable<HttpEvent<LessonPageTemplate>>;
-    public apiV2LessonsPageTemplatesPost(createLessonPageTemplate: CreateLessonPageTemplate, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json',}): Observable<any> {
+    public apiV2LessonsPageTemplatesPost(createLessonPageTemplate: CreateLessonPageTemplate, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<LessonPageTemplate>;
+    public apiV2LessonsPageTemplatesPost(createLessonPageTemplate: CreateLessonPageTemplate, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<LessonPageTemplate>>;
+    public apiV2LessonsPageTemplatesPost(createLessonPageTemplate: CreateLessonPageTemplate, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<LessonPageTemplate>>;
+    public apiV2LessonsPageTemplatesPost(createLessonPageTemplate: CreateLessonPageTemplate, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (createLessonPageTemplate === null || createLessonPageTemplate === undefined) {
             throw new Error('Required parameter createLessonPageTemplate was null or undefined when calling apiV2LessonsPageTemplatesPost.');
         }
@@ -301,6 +316,10 @@ export class LessonPageTemplateService {
             localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
         }
 
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
 
 
         // to determine the Content-Type header
@@ -320,6 +339,7 @@ export class LessonPageTemplateService {
         return this.httpClient.post<LessonPageTemplate>(`${this.configuration.basePath}/api/v2/lessons/pageTemplates`,
             createLessonPageTemplate,
             {
+                context: localVarHttpContext,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
