@@ -1,0 +1,15 @@
+export * from './aPI.service';
+import { APIService } from './aPI.service';
+export * from './exercises.service';
+import { ExercisesService } from './exercises.service';
+export * from './files.service';
+import { FilesService } from './files.service';
+export * from './images.service';
+import { ImagesService } from './images.service';
+export * from './lessonPageTemplate.service';
+import { LessonPageTemplateService } from './lessonPageTemplate.service';
+export * from './lessons.service';
+import { LessonsService } from './lessons.service';
+export * from './polls.service';
+import { PollsService } from './polls.service';
+export const APIS = [APIService, ExercisesService, FilesService, ImagesService, LessonPageTemplateService, LessonsService, PollsService];
