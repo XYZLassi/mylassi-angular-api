@@ -8,6 +8,7 @@ import { FilesService } from './api/files.service';
 import { ImagesService } from './api/images.service';
 import { LessonPageTemplateService } from './api/lessonPageTemplate.service';
 import { LessonsService } from './api/lessons.service';
+import { MethodsTwitterService } from './api/methodsTwitter.service';
 import { PollsService } from './api/polls.service';
 
 @NgModule({

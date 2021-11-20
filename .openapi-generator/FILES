@@ -8,6 +8,7 @@ api/files.service.ts
 api/images.service.ts
 api/lessonPageTemplate.service.ts
 api/lessons.service.ts
+api/methodsTwitter.service.ts
 api/polls.service.ts
 configuration.ts
 encoder.ts
@@ -18,6 +19,7 @@ model/createLesson.ts
 model/createLessonPageOption.ts
 model/createLessonPageTemplate.ts
 model/createPollOptions.ts
+model/createTwitterMessageOption.ts
 model/editExerciseOptions.ts
 model/error.ts
 model/exercise.ts
@@ -48,6 +50,8 @@ model/pollLabel.ts
 model/pollList.ts
 model/pollSession.ts
 model/pollSessionInfo.ts
+model/twitterMessage.ts
+model/twitterMessageList.ts
 model/userInfo.ts
 ng-package.json
 package.json
