@@ -1,6 +1,6 @@
 {
   "name": "@mylassi/angular-general-api",
-  "version": "Develop",
+  "version": "0.16",
   "description": "OpenAPI client for @mylassi/angular-general-api",
   "author": "OpenAPI-Generator Contributors",
   "keywords": [
