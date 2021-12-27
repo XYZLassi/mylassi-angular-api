@@ -15,7 +15,8 @@ encoder.ts
 git_push.sh
 index.ts
 model/createExerciseOptions.ts
-model/createLesson.ts
+model/createLessonOption.ts
+model/createLessonPageElementOption.ts
 model/createLessonPageOption.ts
 model/createLessonPageTemplate.ts
 model/createPollOptions.ts
@@ -33,6 +34,7 @@ model/lessonInfo.ts
 model/lessonList.ts
 model/lessonMultiplexToken.ts
 model/lessonPage.ts
+model/lessonPageElement.ts
 model/lessonPageOption.ts
 model/lessonPagePublic.ts
 model/lessonPageTemplate.ts
@@ -44,6 +46,7 @@ model/lessonPublic.ts
 model/loginRequestBody.ts
 model/loginResponseBody.ts
 model/models.ts
+model/patchLessonPageElementOption.ts
 model/patchPollOptions.ts
 model/poll.ts
 model/pollLabel.ts

@@ -11,9 +11,8 @@
  */
 
 
-export interface CreateLessonPageTemplate { 
-    html: string;
-    name: string;
-    _public?: boolean;
+export interface PatchLessonPageElementOption { 
+    content?: string | null;
+    style?: object | null;
 }
 

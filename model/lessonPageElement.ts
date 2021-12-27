@@ -11,9 +11,10 @@
  */
 
 
-export interface CreateLessonPageTemplate { 
-    html: string;
-    name: string;
-    _public?: boolean;
+export interface LessonPageElement { 
+    content: string;
+    id: number;
+    style?: object;
+    type: string;
 }
 

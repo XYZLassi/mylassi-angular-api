@@ -11,9 +11,7 @@
  */
 
 
-export interface CreateLessonPageTemplate { 
-    html: string;
+export interface CreateLessonOption { 
     name: string;
-    _public?: boolean;
 }
 
