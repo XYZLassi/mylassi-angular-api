@@ -6,6 +6,7 @@ api/api.ts
 api/exercises.service.ts
 api/files.service.ts
 api/images.service.ts
+api/lessonPageElements.service.ts
 api/lessonPageTemplate.service.ts
 api/lessons.service.ts
 api/methodsTwitter.service.ts
@@ -35,6 +36,7 @@ model/lessonList.ts
 model/lessonMultiplexToken.ts
 model/lessonPage.ts
 model/lessonPageElement.ts
+model/lessonPageElementStyle.ts
 model/lessonPageOption.ts
 model/lessonPagePublic.ts
 model/lessonPageTemplate.ts

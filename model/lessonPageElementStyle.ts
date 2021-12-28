@@ -11,7 +11,10 @@
  */
 
 
-export interface CreateLessonOption { 
-    name: string;
+export interface LessonPageElementStyle { 
+    height?: number | null;
+    left?: number | null;
+    top?: number | null;
+    width?: number | null;
 }
 

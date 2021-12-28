@@ -17,6 +17,7 @@ export * from './lessonList';
 export * from './lessonMultiplexToken';
 export * from './lessonPage';
 export * from './lessonPageElement';
+export * from './lessonPageElementStyle';
 export * from './lessonPageOption';
 export * from './lessonPagePublic';
 export * from './lessonPageTemplate';
