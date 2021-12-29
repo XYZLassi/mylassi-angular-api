@@ -11,10 +11,8 @@
  */
 
 
-export interface LessonPageElementStyle { 
-    height?: number | null;
-    left?: number | null;
-    top?: number | null;
-    width?: number | null;
+export interface PatchLessonPageOption { 
+    base_template_id?: number;
+    note?: string;
 }
 

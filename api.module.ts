@@ -3,14 +3,11 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 import { APIService } from './api/aPI.service';
-import { ExercisesService } from './api/exercises.service';
 import { FilesService } from './api/files.service';
 import { ImagesService } from './api/images.service';
+import { LessonPageService } from './api/lessonPage.service';
 import { LessonPageElementsService } from './api/lessonPageElements.service';
-import { LessonPageTemplateService } from './api/lessonPageTemplate.service';
 import { LessonsService } from './api/lessons.service';
-import { MethodsTwitterService } from './api/methodsTwitter.service';
-import { PollsService } from './api/polls.service';
 
 @NgModule({
   imports:      [],

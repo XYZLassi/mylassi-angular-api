@@ -18,9 +18,9 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { CreateLessonPageElementOption } from '../model/models';
-import { LessonPageElement } from '../model/models';
-import { PatchLessonPageElementOption } from '../model/models';
+import { CreateLessonPageOption } from '../model/models';
+import { LessonPage } from '../model/models';
+import { PatchLessonPageOption } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -30,7 +30,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class LessonPageElementsService {
+export class LessonPageService {
 
     protected basePath = 'https://api.mylassi.xyz';
     public defaultHeaders = new HttpHeaders();
@@ -90,22 +90,18 @@ export class LessonPageElementsService {
     /**
      * @param lessonId 
      * @param pageId 
-     * @param elementId 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2LessonsLessonIdPagesPageIdElementsElementIdDelete(lessonId: number, pageId: number, elementId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any>;
-    public apiV2LessonsLessonIdPagesPageIdElementsElementIdDelete(lessonId: number, pageId: number, elementId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<any>>;
-    public apiV2LessonsLessonIdPagesPageIdElementsElementIdDelete(lessonId: number, pageId: number, elementId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<any>>;
-    public apiV2LessonsLessonIdPagesPageIdElementsElementIdDelete(lessonId: number, pageId: number, elementId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public apiV2LessonsLessonIdPagesPageIdDelete(lessonId: number, pageId: number, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any>;
+    public apiV2LessonsLessonIdPagesPageIdDelete(lessonId: number, pageId: number, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<any>>;
+    public apiV2LessonsLessonIdPagesPageIdDelete(lessonId: number, pageId: number, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<any>>;
+    public apiV2LessonsLessonIdPagesPageIdDelete(lessonId: number, pageId: number, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (lessonId === null || lessonId === undefined) {
-            throw new Error('Required parameter lessonId was null or undefined when calling apiV2LessonsLessonIdPagesPageIdElementsElementIdDelete.');
+            throw new Error('Required parameter lessonId was null or undefined when calling apiV2LessonsLessonIdPagesPageIdDelete.');
         }
         if (pageId === null || pageId === undefined) {
-            throw new Error('Required parameter pageId was null or undefined when calling apiV2LessonsLessonIdPagesPageIdElementsElementIdDelete.');
-        }
-        if (elementId === null || elementId === undefined) {
-            throw new Error('Required parameter elementId was null or undefined when calling apiV2LessonsLessonIdPagesPageIdElementsElementIdDelete.');
+            throw new Error('Required parameter pageId was null or undefined when calling apiV2LessonsLessonIdPagesPageIdDelete.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -140,7 +136,7 @@ export class LessonPageElementsService {
             responseType_ = 'text';
         }
 
-        return this.httpClient.delete<any>(`${this.configuration.basePath}/api/v2/lessons/${encodeURIComponent(String(lessonId))}/pages/${encodeURIComponent(String(pageId))}/elements/${encodeURIComponent(String(elementId))}`,
+        return this.httpClient.delete<any>(`${this.configuration.basePath}/api/v2/lessons/${encodeURIComponent(String(lessonId))}/pages/${encodeURIComponent(String(pageId))}`,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -155,26 +151,22 @@ export class LessonPageElementsService {
     /**
      * @param lessonId 
      * @param pageId 
-     * @param elementId 
-     * @param patchLessonPageElementOption 
+     * @param patchLessonPageOption 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2LessonsLessonIdPagesPageIdElementsElementIdPatch(lessonId: number, pageId: number, elementId: number, patchLessonPageElementOption: PatchLessonPageElementOption, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<LessonPageElement>;
-    public apiV2LessonsLessonIdPagesPageIdElementsElementIdPatch(lessonId: number, pageId: number, elementId: number, patchLessonPageElementOption: PatchLessonPageElementOption, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<LessonPageElement>>;
-    public apiV2LessonsLessonIdPagesPageIdElementsElementIdPatch(lessonId: number, pageId: number, elementId: number, patchLessonPageElementOption: PatchLessonPageElementOption, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<LessonPageElement>>;
-    public apiV2LessonsLessonIdPagesPageIdElementsElementIdPatch(lessonId: number, pageId: number, elementId: number, patchLessonPageElementOption: PatchLessonPageElementOption, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public apiV2LessonsLessonIdPagesPageIdPatch(lessonId: number, pageId: number, patchLessonPageOption: PatchLessonPageOption, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<LessonPage>;
+    public apiV2LessonsLessonIdPagesPageIdPatch(lessonId: number, pageId: number, patchLessonPageOption: PatchLessonPageOption, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<LessonPage>>;
+    public apiV2LessonsLessonIdPagesPageIdPatch(lessonId: number, pageId: number, patchLessonPageOption: PatchLessonPageOption, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<LessonPage>>;
+    public apiV2LessonsLessonIdPagesPageIdPatch(lessonId: number, pageId: number, patchLessonPageOption: PatchLessonPageOption, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (lessonId === null || lessonId === undefined) {
-            throw new Error('Required parameter lessonId was null or undefined when calling apiV2LessonsLessonIdPagesPageIdElementsElementIdPatch.');
+            throw new Error('Required parameter lessonId was null or undefined when calling apiV2LessonsLessonIdPagesPageIdPatch.');
         }
         if (pageId === null || pageId === undefined) {
-            throw new Error('Required parameter pageId was null or undefined when calling apiV2LessonsLessonIdPagesPageIdElementsElementIdPatch.');
+            throw new Error('Required parameter pageId was null or undefined when calling apiV2LessonsLessonIdPagesPageIdPatch.');
         }
-        if (elementId === null || elementId === undefined) {
-            throw new Error('Required parameter elementId was null or undefined when calling apiV2LessonsLessonIdPagesPageIdElementsElementIdPatch.');
-        }
-        if (patchLessonPageElementOption === null || patchLessonPageElementOption === undefined) {
-            throw new Error('Required parameter patchLessonPageElementOption was null or undefined when calling apiV2LessonsLessonIdPagesPageIdElementsElementIdPatch.');
+        if (patchLessonPageOption === null || patchLessonPageOption === undefined) {
+            throw new Error('Required parameter patchLessonPageOption was null or undefined when calling apiV2LessonsLessonIdPagesPageIdPatch.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -218,8 +210,8 @@ export class LessonPageElementsService {
             responseType_ = 'text';
         }
 
-        return this.httpClient.patch<LessonPageElement>(`${this.configuration.basePath}/api/v2/lessons/${encodeURIComponent(String(lessonId))}/pages/${encodeURIComponent(String(pageId))}/elements/${encodeURIComponent(String(elementId))}`,
-            patchLessonPageElementOption,
+        return this.httpClient.patch<LessonPage>(`${this.configuration.basePath}/api/v2/lessons/${encodeURIComponent(String(lessonId))}/pages/${encodeURIComponent(String(pageId))}`,
+            patchLessonPageOption,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
@@ -233,23 +225,19 @@ export class LessonPageElementsService {
 
     /**
      * @param lessonId 
-     * @param pageId 
-     * @param createLessonPageElementOption 
+     * @param createLessonPageOption 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2LessonsLessonIdPagesPageIdElementsPost(lessonId: number, pageId: number, createLessonPageElementOption: CreateLessonPageElementOption, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<LessonPageElement>;
-    public apiV2LessonsLessonIdPagesPageIdElementsPost(lessonId: number, pageId: number, createLessonPageElementOption: CreateLessonPageElementOption, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<LessonPageElement>>;
-    public apiV2LessonsLessonIdPagesPageIdElementsPost(lessonId: number, pageId: number, createLessonPageElementOption: CreateLessonPageElementOption, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<LessonPageElement>>;
-    public apiV2LessonsLessonIdPagesPageIdElementsPost(lessonId: number, pageId: number, createLessonPageElementOption: CreateLessonPageElementOption, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public apiV2LessonsLessonIdPagesPost(lessonId: number, createLessonPageOption: CreateLessonPageOption, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<LessonPage>;
+    public apiV2LessonsLessonIdPagesPost(lessonId: number, createLessonPageOption: CreateLessonPageOption, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<LessonPage>>;
+    public apiV2LessonsLessonIdPagesPost(lessonId: number, createLessonPageOption: CreateLessonPageOption, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<LessonPage>>;
+    public apiV2LessonsLessonIdPagesPost(lessonId: number, createLessonPageOption: CreateLessonPageOption, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (lessonId === null || lessonId === undefined) {
-            throw new Error('Required parameter lessonId was null or undefined when calling apiV2LessonsLessonIdPagesPageIdElementsPost.');
+            throw new Error('Required parameter lessonId was null or undefined when calling apiV2LessonsLessonIdPagesPost.');
         }
-        if (pageId === null || pageId === undefined) {
-            throw new Error('Required parameter pageId was null or undefined when calling apiV2LessonsLessonIdPagesPageIdElementsPost.');
-        }
-        if (createLessonPageElementOption === null || createLessonPageElementOption === undefined) {
-            throw new Error('Required parameter createLessonPageElementOption was null or undefined when calling apiV2LessonsLessonIdPagesPageIdElementsPost.');
+        if (createLessonPageOption === null || createLessonPageOption === undefined) {
+            throw new Error('Required parameter createLessonPageOption was null or undefined when calling apiV2LessonsLessonIdPagesPost.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -293,8 +281,8 @@ export class LessonPageElementsService {
             responseType_ = 'text';
         }
 
-        return this.httpClient.post<LessonPageElement>(`${this.configuration.basePath}/api/v2/lessons/${encodeURIComponent(String(lessonId))}/pages/${encodeURIComponent(String(pageId))}/elements`,
-            createLessonPageElementOption,
+        return this.httpClient.post<LessonPage>(`${this.configuration.basePath}/api/v2/lessons/${encodeURIComponent(String(lessonId))}/pages`,
+            createLessonPageOption,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,
