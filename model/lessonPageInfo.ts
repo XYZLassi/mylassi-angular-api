@@ -9,12 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { LessonInfo } from './lessonInfo';
 
 
-export interface ModelFile { 
-    id: string;
-    mime?: string | null;
-    name: string;
-    url: string;
+export interface LessonPageInfo { 
+    id: number;
+    lesson: LessonInfo;
 }
 

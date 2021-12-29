@@ -9,6 +9,7 @@ export * from './lessonList';
 export * from './lessonPage';
 export * from './lessonPageElement';
 export * from './lessonPageElementStyle';
+export * from './lessonPageInfo';
 export * from './loginRequestBody';
 export * from './loginResponseBody';
 export * from './error';

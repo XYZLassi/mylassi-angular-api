@@ -25,6 +25,7 @@ model/lessonList.ts
 model/lessonPage.ts
 model/lessonPageElement.ts
 model/lessonPageElementStyle.ts
+model/lessonPageInfo.ts
 model/loginRequestBody.ts
 model/loginResponseBody.ts
 model/models.ts
