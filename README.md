@@ -1,4 +1,4 @@
-## @mylassi/angular-general-api@0.18.9
+## @mylassi/angular-general-api@0.19.0
 
 ### Building
 
@@ -19,7 +19,7 @@ Navigate to the folder of your consuming project and run one of next commands.
 _published:_
 
 ```
-npm install @mylassi/angular-general-api@0.18.9 --save
+npm install @mylassi/angular-general-api@0.19.0 --save
 ```
 
 _without publishing (not recommended):_
