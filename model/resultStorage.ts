@@ -11,7 +11,8 @@
  */
 
 
-export interface ModelError { 
-    error?: string;
+export interface ResultStorage { 
+    data: object;
+    id: string;
 }
 

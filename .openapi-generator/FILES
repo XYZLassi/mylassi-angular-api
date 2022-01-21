@@ -8,6 +8,7 @@ api/images.service.ts
 api/lessonPage.service.ts
 api/lessonPageElements.service.ts
 api/lessons.service.ts
+api/resultStorage.service.ts
 configuration.ts
 encoder.ts
 git_push.sh
@@ -15,6 +16,7 @@ index.ts
 model/createLessonOption.ts
 model/createLessonPageElementOption.ts
 model/createLessonPageOption.ts
+model/createResultStorageOption.ts
 model/error.ts
 model/file.ts
 model/image.ts
@@ -31,6 +33,9 @@ model/loginResponseBody.ts
 model/models.ts
 model/patchLessonPageElementOption.ts
 model/patchLessonPageOption.ts
+model/patchResultStorageOption.ts
+model/resultStorage.ts
+model/resultStorageToken.ts
 model/userInfo.ts
 ng-package.json
 package.json

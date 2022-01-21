@@ -8,6 +8,7 @@ import { ImagesService } from './api/images.service';
 import { LessonPageService } from './api/lessonPage.service';
 import { LessonPageElementsService } from './api/lessonPageElements.service';
 import { LessonsService } from './api/lessons.service';
+import { ResultStorageService } from './api/resultStorage.service';
 
 @NgModule({
   imports:      [],

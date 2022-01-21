@@ -1,6 +1,7 @@
 export * from './createLessonOption';
 export * from './createLessonPageElementOption';
 export * from './createLessonPageOption';
+export * from './createResultStorageOption';
 export * from './image';
 export * from './imageList';
 export * from './lesson';
@@ -16,4 +17,7 @@ export * from './error';
 export * from './file';
 export * from './patchLessonPageElementOption';
 export * from './patchLessonPageOption';
+export * from './patchResultStorageOption';
+export * from './resultStorage';
+export * from './resultStorageToken';
 export * from './userInfo';

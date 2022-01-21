@@ -11,7 +11,7 @@
  */
 
 
-export interface ModelError { 
-    error?: string;
+export interface PatchResultStorageOption { 
+    data: object;
 }
 

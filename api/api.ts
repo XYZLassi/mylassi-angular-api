@@ -10,4 +10,6 @@ export * from './lessonPageElements.service';
 import { LessonPageElementsService } from './lessonPageElements.service';
 export * from './lessons.service';
 import { LessonsService } from './lessons.service';
-export const APIS = [APIService, FilesService, ImagesService, LessonPageService, LessonPageElementsService, LessonsService];
+export * from './resultStorage.service';
+import { ResultStorageService } from './resultStorage.service';
+export const APIS = [APIService, FilesService, ImagesService, LessonPageService, LessonPageElementsService, LessonsService, ResultStorageService];
