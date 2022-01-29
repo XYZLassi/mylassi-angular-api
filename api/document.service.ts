@@ -18,10 +18,9 @@ import { HttpClient, HttpHeaders, HttpParams,
 import { CustomHttpParameterCodec }                          from '../encoder';
 import { Observable }                                        from 'rxjs';
 
-import { CreateResultStorageOption } from '../model/models';
-import { PatchResultStorageOption } from '../model/models';
-import { ResultStorage } from '../model/models';
-import { ResultStorageToken } from '../model/models';
+import { CreateDocumentOption } from '../model/models';
+import { Document } from '../model/models';
+import { UpdateDocumentOption } from '../model/models';
 
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
@@ -31,7 +30,7 @@ import { Configuration }                                     from '../configurat
 @Injectable({
   providedIn: 'root'
 })
-export class ResultStorageService {
+export class DocumentService {
 
     protected basePath = 'https://api.mylassi.xyz';
     public defaultHeaders = new HttpHeaders();
@@ -90,26 +89,15 @@ export class ResultStorageService {
 
     /**
      * @param docId 
-     * @param patchResultStorageOption 
-     * @param apiToken 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ResultStorageDocIdPatch(docId: string, patchResultStorageOption: PatchResultStorageOption, apiToken?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ResultStorage>;
-    public apiV2ResultStorageDocIdPatch(docId: string, patchResultStorageOption: PatchResultStorageOption, apiToken?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ResultStorage>>;
-    public apiV2ResultStorageDocIdPatch(docId: string, patchResultStorageOption: PatchResultStorageOption, apiToken?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ResultStorage>>;
-    public apiV2ResultStorageDocIdPatch(docId: string, patchResultStorageOption: PatchResultStorageOption, apiToken?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+    public apiV2DocumentsDocIdGet(docId: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Document>;
+    public apiV2DocumentsDocIdGet(docId: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Document>>;
+    public apiV2DocumentsDocIdGet(docId: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Document>>;
+    public apiV2DocumentsDocIdGet(docId: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
         if (docId === null || docId === undefined) {
-            throw new Error('Required parameter docId was null or undefined when calling apiV2ResultStorageDocIdPatch.');
-        }
-        if (patchResultStorageOption === null || patchResultStorageOption === undefined) {
-            throw new Error('Required parameter patchResultStorageOption was null or undefined when calling apiV2ResultStorageDocIdPatch.');
-        }
-
-        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
-        if (apiToken !== undefined && apiToken !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>apiToken, 'api_token');
+            throw new Error('Required parameter docId was null or undefined when calling apiV2DocumentsDocIdGet.');
         }
 
         let localVarHeaders = this.defaultHeaders;
@@ -132,25 +120,14 @@ export class ResultStorageService {
         }
 
 
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
         let responseType_: 'text' | 'json' = 'json';
         if(localVarHttpHeaderAcceptSelected && localVarHttpHeaderAcceptSelected.startsWith('text')) {
             responseType_ = 'text';
         }
 
-        return this.httpClient.patch<ResultStorage>(`${this.configuration.basePath}/api/v2/resultStorage/${encodeURIComponent(String(docId))}`,
-            patchResultStorageOption,
+        return this.httpClient.get<Document>(`${this.configuration.basePath}/api/v2/documents/${encodeURIComponent(String(docId))}`,
             {
                 context: localVarHttpContext,
-                params: localVarQueryParameters,
                 responseType: <any>responseType_,
                 withCredentials: this.configuration.withCredentials,
                 headers: localVarHeaders,
@@ -161,81 +138,21 @@ export class ResultStorageService {
     }
 
     /**
-     * @param createResultStorageOption 
-     * @param apiToken 
+     * @param docId 
+     * @param updateDocumentOption 
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public apiV2ResultStoragePost(createResultStorageOption: CreateResultStorageOption, apiToken?: string, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ResultStorage>;
-    public apiV2ResultStoragePost(createResultStorageOption: CreateResultStorageOption, apiToken?: string, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ResultStorage>>;
-    public apiV2ResultStoragePost(createResultStorageOption: CreateResultStorageOption, apiToken?: string, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ResultStorage>>;
-    public apiV2ResultStoragePost(createResultStorageOption: CreateResultStorageOption, apiToken?: string, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
-        if (createResultStorageOption === null || createResultStorageOption === undefined) {
-            throw new Error('Required parameter createResultStorageOption was null or undefined when calling apiV2ResultStoragePost.');
+    public apiV2DocumentsDocIdPost(docId: string, updateDocumentOption: UpdateDocumentOption, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Document>;
+    public apiV2DocumentsDocIdPost(docId: string, updateDocumentOption: UpdateDocumentOption, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Document>>;
+    public apiV2DocumentsDocIdPost(docId: string, updateDocumentOption: UpdateDocumentOption, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Document>>;
+    public apiV2DocumentsDocIdPost(docId: string, updateDocumentOption: UpdateDocumentOption, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (docId === null || docId === undefined) {
+            throw new Error('Required parameter docId was null or undefined when calling apiV2DocumentsDocIdPost.');
         }
-
-        let localVarQueryParameters = new HttpParams({encoder: this.encoder});
-        if (apiToken !== undefined && apiToken !== null) {
-          localVarQueryParameters = this.addToHttpParams(localVarQueryParameters,
-            <any>apiToken, 'api_token');
+        if (updateDocumentOption === null || updateDocumentOption === undefined) {
+            throw new Error('Required parameter updateDocumentOption was null or undefined when calling apiV2DocumentsDocIdPost.');
         }
-
-        let localVarHeaders = this.defaultHeaders;
-
-        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
-        if (localVarHttpHeaderAcceptSelected === undefined) {
-            // to determine the Accept header
-            const httpHeaderAccepts: string[] = [
-                'application/json'
-            ];
-            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
-        }
-        if (localVarHttpHeaderAcceptSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
-        }
-
-        let localVarHttpContext: HttpContext | undefined = options && options.context;
-        if (localVarHttpContext === undefined) {
-            localVarHttpContext = new HttpContext();
-        }
-
-
-        // to determine the Content-Type header
-        const consumes: string[] = [
-            'application/json'
-        ];
-        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
-        if (httpContentTypeSelected !== undefined) {
-            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
-        }
-
-        let responseType_: 'text' | 'json' = 'json';
-        if(localVarHttpHeaderAcceptSelected && localVarHttpHeaderAcceptSelected.startsWith('text')) {
-            responseType_ = 'text';
-        }
-
-        return this.httpClient.post<ResultStorage>(`${this.configuration.basePath}/api/v2/resultStorage`,
-            createResultStorageOption,
-            {
-                context: localVarHttpContext,
-                params: localVarQueryParameters,
-                responseType: <any>responseType_,
-                withCredentials: this.configuration.withCredentials,
-                headers: localVarHeaders,
-                observe: observe,
-                reportProgress: reportProgress
-            }
-        );
-    }
-
-    /**
-     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
-     * @param reportProgress flag to report request and response progress.
-     */
-    public apiV2ResultStorageTokenGet(observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<ResultStorageToken>;
-    public apiV2ResultStorageTokenGet(observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<ResultStorageToken>>;
-    public apiV2ResultStorageTokenGet(observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<ResultStorageToken>>;
-    public apiV2ResultStorageTokenGet(observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
 
         let localVarHeaders = this.defaultHeaders;
 
@@ -264,12 +181,89 @@ export class ResultStorageService {
         }
 
 
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
+        }
+
         let responseType_: 'text' | 'json' = 'json';
         if(localVarHttpHeaderAcceptSelected && localVarHttpHeaderAcceptSelected.startsWith('text')) {
             responseType_ = 'text';
         }
 
-        return this.httpClient.get<ResultStorageToken>(`${this.configuration.basePath}/api/v2/resultStorage/token`,
+        return this.httpClient.post<Document>(`${this.configuration.basePath}/api/v2/documents/${encodeURIComponent(String(docId))}`,
+            updateDocumentOption,
+            {
+                context: localVarHttpContext,
+                responseType: <any>responseType_,
+                withCredentials: this.configuration.withCredentials,
+                headers: localVarHeaders,
+                observe: observe,
+                reportProgress: reportProgress
+            }
+        );
+    }
+
+    /**
+     * @param createDocumentOption 
+     * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
+     * @param reportProgress flag to report request and response progress.
+     */
+    public apiV2DocumentsPost(createDocumentOption: CreateDocumentOption, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<Document>;
+    public apiV2DocumentsPost(createDocumentOption: CreateDocumentOption, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpResponse<Document>>;
+    public apiV2DocumentsPost(createDocumentOption: CreateDocumentOption, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<HttpEvent<Document>>;
+    public apiV2DocumentsPost(createDocumentOption: CreateDocumentOption, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: 'application/json', context?: HttpContext}): Observable<any> {
+        if (createDocumentOption === null || createDocumentOption === undefined) {
+            throw new Error('Required parameter createDocumentOption was null or undefined when calling apiV2DocumentsPost.');
+        }
+
+        let localVarHeaders = this.defaultHeaders;
+
+        let localVarCredential: string | undefined;
+        // authentication (ApiKeyAuth) required
+        localVarCredential = this.configuration.lookupCredential('ApiKeyAuth');
+        if (localVarCredential) {
+            localVarHeaders = localVarHeaders.set('X-API-Key', localVarCredential);
+        }
+
+        let localVarHttpHeaderAcceptSelected: string | undefined = options && options.httpHeaderAccept;
+        if (localVarHttpHeaderAcceptSelected === undefined) {
+            // to determine the Accept header
+            const httpHeaderAccepts: string[] = [
+                'application/json'
+            ];
+            localVarHttpHeaderAcceptSelected = this.configuration.selectHeaderAccept(httpHeaderAccepts);
+        }
+        if (localVarHttpHeaderAcceptSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Accept', localVarHttpHeaderAcceptSelected);
+        }
+
+        let localVarHttpContext: HttpContext | undefined = options && options.context;
+        if (localVarHttpContext === undefined) {
+            localVarHttpContext = new HttpContext();
+        }
+
+
+        // to determine the Content-Type header
+        const consumes: string[] = [
+            'application/json'
+        ];
+        const httpContentTypeSelected: string | undefined = this.configuration.selectHeaderContentType(consumes);
+        if (httpContentTypeSelected !== undefined) {
+            localVarHeaders = localVarHeaders.set('Content-Type', httpContentTypeSelected);
+        }
+
+        let responseType_: 'text' | 'json' = 'json';
+        if(localVarHttpHeaderAcceptSelected && localVarHttpHeaderAcceptSelected.startsWith('text')) {
+            responseType_ = 'text';
+        }
+
+        return this.httpClient.post<Document>(`${this.configuration.basePath}/api/v2/documents`,
+            createDocumentOption,
             {
                 context: localVarHttpContext,
                 responseType: <any>responseType_,

@@ -1,7 +1,9 @@
+export * from './createDocumentOption';
 export * from './createLessonOption';
 export * from './createLessonPageElementOption';
 export * from './createLessonPageOption';
 export * from './createResultStorageOption';
+export * from './document';
 export * from './image';
 export * from './imageList';
 export * from './lesson';
@@ -20,4 +22,5 @@ export * from './patchLessonPageOption';
 export * from './patchResultStorageOption';
 export * from './resultStorage';
 export * from './resultStorageToken';
+export * from './updateDocumentOption';
 export * from './userInfo';

@@ -9,12 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { CreateLessonPageElementOption } from './createLessonPageElementOption';
 
 
-export interface CreateLessonPageOption { 
-    elements?: Array<CreateLessonPageElementOption>;
-    note?: string | null;
-    previous_page?: number | null;
+export interface CreateDocumentOption { 
+    name: string;
+    text: string;
 }
 

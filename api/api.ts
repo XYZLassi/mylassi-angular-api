@@ -1,5 +1,7 @@
 export * from './aPI.service';
 import { APIService } from './aPI.service';
+export * from './document.service';
+import { DocumentService } from './document.service';
 export * from './files.service';
 import { FilesService } from './files.service';
 export * from './images.service';
@@ -12,4 +14,4 @@ export * from './lessons.service';
 import { LessonsService } from './lessons.service';
 export * from './resultStorage.service';
 import { ResultStorageService } from './resultStorage.service';
-export const APIS = [APIService, FilesService, ImagesService, LessonPageService, LessonPageElementsService, LessonsService, ResultStorageService];
+export const APIS = [APIService, DocumentService, FilesService, ImagesService, LessonPageService, LessonPageElementsService, LessonsService, ResultStorageService];

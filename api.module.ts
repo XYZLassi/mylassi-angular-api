@@ -3,6 +3,7 @@ import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
 
 import { APIService } from './api/aPI.service';
+import { DocumentService } from './api/document.service';
 import { FilesService } from './api/files.service';
 import { ImagesService } from './api/images.service';
 import { LessonPageService } from './api/lessonPage.service';

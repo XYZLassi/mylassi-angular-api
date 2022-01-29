@@ -3,6 +3,7 @@ README.md
 api.module.ts
 api/aPI.service.ts
 api/api.ts
+api/document.service.ts
 api/files.service.ts
 api/images.service.ts
 api/lessonPage.service.ts
@@ -13,10 +14,12 @@ configuration.ts
 encoder.ts
 git_push.sh
 index.ts
+model/createDocumentOption.ts
 model/createLessonOption.ts
 model/createLessonPageElementOption.ts
 model/createLessonPageOption.ts
 model/createResultStorageOption.ts
+model/document.ts
 model/error.ts
 model/file.ts
 model/image.ts
@@ -36,6 +39,7 @@ model/patchLessonPageOption.ts
 model/patchResultStorageOption.ts
 model/resultStorage.ts
 model/resultStorageToken.ts
+model/updateDocumentOption.ts
 model/userInfo.ts
 ng-package.json
 package.json
