@@ -9,11 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { LessonInfo } from './lessonInfo';
 
 
-export interface LessonPageInfo { 
-    id: number;
-    lesson: LessonInfo;
+export interface UpdateDocumentOptionData { 
+    name: string;
+    text: string;
 }
 

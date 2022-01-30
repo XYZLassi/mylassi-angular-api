@@ -9,11 +9,12 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { LessonInfo } from './lessonInfo';
 
 
-export interface LessonPageInfo { 
+export interface UserData { 
+    email?: string | null;
     id: number;
-    lesson: LessonInfo;
+    is_admin?: string | null;
+    username: string;
 }
 
