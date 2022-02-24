@@ -38,6 +38,8 @@ model/patchLessonPageElementOption.ts
 model/patchLessonPageOption.ts
 model/patchResultStorageOption.ts
 model/resultStorage.ts
+model/resultStorageInfo.ts
+model/resultStorageList.ts
 model/resultStorageToken.ts
 model/updateDocumentOptionData.ts
 model/userData.ts

@@ -21,6 +21,8 @@ export * from './patchLessonPageElementOption';
 export * from './patchLessonPageOption';
 export * from './patchResultStorageOption';
 export * from './resultStorage';
+export * from './resultStorageInfo';
+export * from './resultStorageList';
 export * from './resultStorageToken';
 export * from './updateDocumentOptionData';
 export * from './userData';

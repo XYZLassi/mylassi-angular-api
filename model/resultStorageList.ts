@@ -9,10 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { ResultStorageInfo } from './resultStorageInfo';
 
 
-export interface PatchLessonPageOption { 
-    base_template_id?: number;
-    note?: string;
+export interface ResultStorageList { 
+    items?: Array<ResultStorageInfo>;
+    length?: number;
+    page?: number;
+    pages?: number;
 }
 

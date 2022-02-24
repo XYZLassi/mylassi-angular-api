@@ -11,8 +11,7 @@
  */
 
 
-export interface PatchLessonPageOption { 
-    base_template_id?: number;
-    note?: string;
+export interface ResultStorageInfo { 
+    id: string;
 }
 
