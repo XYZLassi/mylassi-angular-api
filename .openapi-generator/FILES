@@ -38,9 +38,9 @@ model/models.ts
 model/patchLessonPageElementOption.ts
 model/patchLessonPageOption.ts
 model/patchResultStorageOption.ts
-model/proverListData.ts
 model/providerCredentialData.ts
 model/providerData.ts
+model/providerListData.ts
 model/resultStorage.ts
 model/resultStorageInfo.ts
 model/resultStorageList.ts

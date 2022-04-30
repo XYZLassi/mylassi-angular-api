@@ -9,12 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
+import { ProviderData } from './providerData';
 
 
-export interface UserData { 
-    email?: string | null;
-    id: number;
-    is_admin?: string | null;
-    username: string;
+export interface ProviderListData { 
+    items?: Array<ProviderData>;
+    length: number;
+    page: number;
+    pages: number;
 }
 
