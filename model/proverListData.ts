@@ -9,13 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Image } from './image';
+import { ProviderData } from './providerData';
 
 
-export interface ImageList { 
-    items?: Array<Image>;
-    length?: number;
-    page?: number;
-    pages?: number;
+export interface ProverListData { 
+    items?: Array<ProviderData>;
+    length: number;
+    page: number;
+    pages: number;
 }
 
